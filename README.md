@@ -41,6 +41,8 @@ To simulate the tracking of illicit weapons shipments across the Ukraine–Russi
 
 1. Select a region in [Sentinal Hub's EO Browser](https://apps.sentinel-hub.com/eo-browser/)
 2. Select a known or suspected arms smuggling corridor
+3. Download/install [QGIS](https://qgis.org/download/)
+4. 
 
 ---
 
