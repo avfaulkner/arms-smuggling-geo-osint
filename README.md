@@ -50,8 +50,16 @@ pip install -r requirements.txt
 
 1. Select a region in [Sentinal Hub's EO Browser](https://apps.sentinel-hub.com/eo-browser/)
 2. Select a known or suspected arms smuggling corridor
-3. Download/install [QGIS](https://qgis.org/download/)
-4. 
+3. Download/install [QGIS](https://qgis.org/download/) to create manual overlays, or
+4. Run the Jupyter notebooks to create automatic heatmaps and image overlays to illustrate changes between images
+
+## SAR-Based Change Detection
+
+In addition to optical imagery, Sentinel-1 SAR (VV) was used to identify radar backscatter changes between May and June 2022.
+
+- Radar allows analysis despite cloud cover, day/night, or camouflage.  
+- EO Browser used for image retrieval  
+- Python and Rasterio used for pixel-level analysis  
 
 ---
 
@@ -59,7 +67,7 @@ pip install -r requirements.txt
 
 - Annotated satellite visuals
 - Jupyter notebooks documenting geospatial analysis
-- Final intelligence report with findings and tradecraft explanation
+- Final intelligence reports with findings and tradecraft explanation
 
 ---
 

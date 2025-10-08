@@ -10,3 +10,5 @@ shapely==2.0.4
 fiona==1.9.6
 opencv-python==4.9.0.80   # For image comparisons & annotations
 folium==0.16.0     # For geospatial mapping 
+Pillow  ==10.1.0   # For image processing
+scipy==1.11.4   # For advanced image processing
