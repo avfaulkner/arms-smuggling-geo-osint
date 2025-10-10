@@ -37,7 +37,7 @@ To simulate the tracking of illicit weapons shipments across the Ukraine–Russi
 5. **Reporting:** Combine findings into a structured intelligence report using GEOINT tradecraft.
 
 ---
-### Individual Steps
+### Individual Steps Taken
 
 Prereqs: Install necessary packages within a virtual environment.
 
@@ -45,8 +45,9 @@ Prereqs: Install necessary packages within a virtual environment.
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
+sudo apt install pandoc -y
 ```
-
+*If on Windows, use venv\Scripts\activate instead of venv/bin/activate*
 
 1. Select a region in [Sentinal Hub's EO Browser](https://apps.sentinel-hub.com/eo-browser/)
 2. Select a known or suspected arms smuggling corridor
@@ -61,6 +62,16 @@ In addition to optical imagery, Sentinel-1 SAR (VV) was used to identify radar b
 - EO Browser used for image retrieval  
 - Python and Rasterio used for pixel-level analysis  
 
+---
+
+## Generate Intelligence Report (PDF)
+
+To render the Markdown intelligence report as a PDF:
+
+1. Make sure you have `pandoc` installed:
+   - macOS: `brew install pandoc`
+   - Ubuntu/Debian: `sudo apt install pandoc`
+2. Run generate_pdf_report.ipynb
 ---
 
 ## Deliverables
