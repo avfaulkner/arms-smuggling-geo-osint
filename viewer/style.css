@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+#map {
+  width: 100vw;
+  height: 100vh;
+}
+.leaflet-control-layers-expanded {
+  max-height: 150px;
+  overflow-y: auto;
+}
