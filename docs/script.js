@@ -20,7 +20,7 @@ sarOverlay.addTo(map);
 // Optional: Add other overlays
 const trueColorOverlay = L.imageOverlay('assets/sar_overlay_falsecolor_annotated.png', [
   latLngBounds.getNorthWest(),
-  latLngBounds.getSouthEast()
+  {opacity: 0.8, ...latLngBounds.getSouthEast()}
 ]);
 
 const falseColorOverlay = L.imageOverlay('assets/sar_overlay_truecolor_annotated.png', [
