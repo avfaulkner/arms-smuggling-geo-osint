@@ -6,17 +6,21 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
+var latLngBounds = L.latLngBounds([49.980, 36.160], [49.990, 36.176]);
+map.fitBounds(latLngBounds);
+
 // Add overlay: SAR heatmap
 const sarOverlay = L.imageOverlay('assets/sar_overlay.png', [
   [49.990, 36.160],  // top-left (lat, lon)
   [49.980, 36.176]   // bottom-right (lat, lon)
+
 ]);
 sarOverlay.addTo(map);
 
 // Optional: Add other overlays
 const trueColorOverlay = L.imageOverlay('assets/sar_overlay_falsecolor_annotated.png', [
-  [49.990, 36.160],
-  [49.980, 36.176]
+  latLngBounds.getNorthWest(),
+  latLngBounds.getSouthEast()
 ]);
 
 const falseColorOverlay = L.imageOverlay('assets/sar_overlay_truecolor_annotated.png', [
