@@ -13,7 +13,7 @@ var latLngBounds = L.latLngBounds([49.980, 36.160], [49.990, 36.176]); // Define
 // Add overlay: SAR heatmap
 const trueColorOverlay = L.imageOverlay('assets/sar_overlay_truecolor_annotated.png', [
   latLngBounds,
-  {setOpacity: 0.8, interactive: true}
+  {setOpacity: 0.8}
 
 ]);
 sarOverlay.addTo(map);
@@ -21,18 +21,18 @@ sarOverlay.addTo(map);
 // Optional: Add other overlays
 const sarOverlay = L.imageOverlay('assets/sar_overlay_falsecolor_annotated.png', [
   latLngBounds,
-  {opacity: 0.8, interactive: true}
+  {opacity: 0.4}
 ]);
 
 const falseColorOverlay = L.imageOverlay('assets/sar_overlay_truecolor_annotated.png', [
-  [49.990, 36.160],
-  [49.980, 36.176]
+  latLngBounds,
+  {opacity: 0.8}
 ]);
 
 // Layer control
 const overlays = {
+  "True Color Urban Change": trueColorOverlay,
   "SAR Change": sarOverlay,
-  "True Color Change": trueColorOverlay,
   "False Color Urban Change": falseColorOverlay
 };
 
