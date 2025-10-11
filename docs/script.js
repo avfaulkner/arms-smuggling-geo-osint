@@ -11,7 +11,7 @@ var latLngBounds = L.latLngBounds([49.980, 36.160], [49.990, 36.176]); // Define
 // map.fitBounds(latLngBounds);
 
 // Add overlay: SAR heatmap
-const sarOverlay = L.imageOverlay('assets/sar_overlay.png', [
+const trueColorOverlay = L.imageOverlay('assets/sar_overlay_truecolor_annotated.png', [
   latLngBounds,
   {setOpacity: 0.8, interactive: true}
 
@@ -19,7 +19,7 @@ const sarOverlay = L.imageOverlay('assets/sar_overlay.png', [
 sarOverlay.addTo(map);
 
 // Optional: Add other overlays
-const trueColorOverlay = L.imageOverlay('assets/sar_overlay_falsecolor_annotated.png', [
+const sarOverlay = L.imageOverlay('assets/sar_overlay_falsecolor_annotated.png', [
   latLngBounds,
   {opacity: 0.8, interactive: true}
 ]);
