@@ -1,34 +1,34 @@
-// Define geographic bounds for the Solonytsivka area
-// Replace these with accurate lat/lon bounds of your satellite images
-const imageBounds = [[50.038, 36.18], [50.058, 36.22]];
+// Initialize the map
+const map = L.map('map').setView([49.985, 36.168], 14); // Coordinates of Solonytsivka
 
-const map = L.map('map').setView([50.048, 36.20], 15);
-
-// Basemap (optional)
+// Basemap (OpenStreetMap or satellite)
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
   attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-// Add satellite imagery overlays
-const mayTrueColor = L.imageOverlay('assets/solonytsivka_may2022_truecolor.png', imageBounds);
-const junTrueColor = L.imageOverlay('assets/solonytsivka_jun2022_truecolor.png', imageBounds);
-const sarOverlay = L.imageOverlay('assets/sar_overlay.png', imageBounds);
-const heatmap = L.imageOverlay('assets/sar_diff_heatmap.png', imageBounds);
-
-// Add control to toggle layers
-const baseMaps = {
-  "May 2022 (True Color)": mayTrueColor,
-  "June 2022 (True Color)": junTrueColor
-};
-
-const overlayMaps = {
-  "SAR Change Overlay": sarOverlay,
-  "SAR Difference Heatmap": heatmap
-};
-
-L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
-
-// Show one base + one overlay by default
-mayTrueColor.addTo(map);
+// Add overlay: SAR heatmap
+const sarOverlay = L.imageOverlay('assets/sar_overlay.png', [
+  [49.990, 36.160],  // top-left (lat, lon)
+  [49.980, 36.176]   // bottom-right (lat, lon)
+]);
 sarOverlay.addTo(map);
+
+// Optional: Add other overlays
+const trueColorOverlay = L.imageOverlay('assets/sar_overlay_falsecolor_annotated.png', [
+  [49.990, 36.160],
+  [49.980, 36.176]
+]);
+
+const falseColorOverlay = L.imageOverlay('assets/sar_overlay_truecolor_annotated.png', [
+  [49.990, 36.160],
+  [49.980, 36.176]
+]);
+
+// Layer control
+const overlays = {
+  "SAR Change": sarOverlay,
+  "True Color Change": trueColorOverlay,
+  "False Color Urban Change": falseColorOverlay
+};
+
+L.control.layers(null, overlays).addTo(map);
