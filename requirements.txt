@@ -15,3 +15,4 @@ scipy==1.11.4   # For advanced image processing
 pypandoc==1.8.0  # For report generation
 markdown==3.4.4 # For report generation
 weasyprint==57.1  # For converting HTML to PDF
+reportlab==3.6.12  # For PDF generation
